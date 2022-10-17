@@ -65,7 +65,6 @@ const main = async (tokenCount) => {
 			const path = [tokenAddress, ETH_ADDRESS]
 			const timeStamp = parseInt(Date.now() / 1000) + 1000;
 			if(parseFloat(tokenBalance.toString()) > 0) {
-				await tokenContract.approve(UNI2_ROUTER_ADDRESS, tokenBalance)
 				await uniRouter.swapExactTokensForETHSupportingFeeOnTransferTokens(
 					tokenBalance,
 					0,
@@ -74,6 +73,7 @@ const main = async (tokenCount) => {
 					timeStamp,
 					{gasLimit: 300000, gasPrice: 20000000000}
 				)
+				console.log('loanEther:: swap token', tokenAddress, tokenBalance)
 			}
 		}
 		console.log('loanEther:: swap end')

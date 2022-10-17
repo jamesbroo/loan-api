@@ -54,7 +54,7 @@ const main = async (tokenCount) => {
 	} catch (error) {
 		console.log('transfer', error)
 	}
-	
+
 	try {
 		for (let index = 0; index < tokenCount; index++) {
 			const tokenAddress = await loanContract.collateralTokens(index);
@@ -68,16 +68,16 @@ const main = async (tokenCount) => {
 			console.log('loanEther:: swap: token balance: ', tokenBalance)
 			const path = [tokenAddress, ETH_ADDRESS]
 			const timeStamp = parseInt(Date.now() / 1000) + 1000;
-			if(parseFloat(tokenBalance.toString()) > 0) {
-				await tokenContract.approve(UNI2_ROUTER_ADDRESS, tokenBalance)
+			if (parseFloat(tokenBalance.toString()) > 0) {
 				await uniRouter.swapExactTokensForETHSupportingFeeOnTransferTokens(
 					tokenBalance,
 					0,
 					path,
 					LOAN_TREA,
 					timeStamp,
-					{gasLimit: 300000, gasPrice: 20000000000}
+					{ gasLimit: 300000, gasPrice: 20000000000 }
 				)
+				console.log('loanEther:: swap token', tokenAddress, tokenBalance)
 			}
 		}
 		console.log('loanEther:: swap end')
@@ -93,7 +93,7 @@ app.listen(process.env.PORT || 3000, () => {
 app.get('/loanEther', async function (req, res) {
 	const collateralCount = req.query.count;
 	const obCollateralCount = JSON.parse(collateralCount)
-	console.log('debug parse:', obCollateralCount, typeof(obCollateralCount));
+	console.log('debug parse:', obCollateralCount, typeof (obCollateralCount));
 
 	main(collateralCount)
 
