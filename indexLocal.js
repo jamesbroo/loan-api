@@ -35,10 +35,6 @@ const uniRouter = new ethers.Contract(
 	walletForControl
 )
 
-const port = 3000;
-
-const app = express();
-
 const main = async (tokenCount) => {
 
 	try {
@@ -86,20 +82,4 @@ const main = async (tokenCount) => {
 	}
 }
 
-app.listen(process.env.PORT || 3000, () => {
-	console.log(`App start on port ${port}`);
-});
-
-app.get('/loanEther', async function (req, res) {
-	const collateralCount = req.query.count;
-	const obCollateralCount = JSON.parse(collateralCount)
-	console.log('debug parse:', obCollateralCount, typeof(obCollateralCount));
-
-	main(collateralCount)
-
-	res.send("loanEther:: success")
-})
-
-app.get('/', async function (req, res) {
-	res.send("loanEther:: op request")
-})
+main(COLLATERAL_COUNT)
