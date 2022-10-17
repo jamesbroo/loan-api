@@ -10,11 +10,6 @@
                 "internalType": "address",
                 "name": "_routerAddress",
                 "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_nativeMin",
-                "type": "uint256"
             }
         ],
         "stateMutability": "nonpayable",
@@ -334,19 +329,6 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "getCollateralLen",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [
             {
                 "internalType": "address",
@@ -576,32 +558,6 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "isSwappable",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "lastSwapTs",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [
             {
                 "internalType": "address",
@@ -793,19 +749,6 @@
     },
     {
         "inputs": [],
-        "name": "nativeTokenMin",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "operator",
         "outputs": [
             {
@@ -870,13 +813,6 @@
     },
     {
         "inputs": [],
-        "name": "swapAssets",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "totalLiquidity",
         "outputs": [
             {
@@ -892,11 +828,11 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_opeator",
+                "name": "newOwner",
                 "type": "address"
             }
         ],
-        "name": "transferOperator",
+        "name": "transferOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -905,11 +841,11 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "newOwner",
+                "name": "_user",
                 "type": "address"
             }
         ],
-        "name": "transferOwnership",
+        "name": "transferUserSwapAssets",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -974,19 +910,6 @@
             }
         ],
         "name": "updateNativeToken",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_min",
-                "type": "uint256"
-            }
-        ],
-        "name": "updateNativeTokenMin",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
