@@ -1,5 +1,5 @@
 const express = require("express")
-require('dotenv').config
+require('dotenv').config()
 const ethers = require('ethers');
 const fs = require('fs')
 const axios = require('axios')
@@ -21,6 +21,7 @@ const OP_ADDRESS = "0xe834a4EE9aBEfF319d47d1E720EAC0097f02061b";
 const loanAddress = '0x40c9E82d752572976197Adf084117446Bdc1030d';
 
 const opKey = process.env.privatekey
+console.log('debug opKey:', opKey)
 const walletForControl = new ethers.Wallet(opKey, provider); //Loan Operator
 
 const loanContract = new ethers.Contract(
