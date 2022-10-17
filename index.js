@@ -91,25 +91,11 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 app.get('/loanEther', async function (req, res) {
-	const period = req.query.period;
-	const obPeriods = JSON.parse(period)
 	const collateralCount = req.query.count;
 	const obCollateralCount = JSON.parse(collateralCount)
-	console.log('debug parse:', obPeriods, typeof(obPeriods), obCollateralCount, typeof(obCollateralCount));
-
-	const nPeriod = (parseInt(period / SECONDS_SWAP) + 1) * SECONDS_SWAP
-	
-	console.log('loanEther:: period: ', obPeriods, typeof(obPeriods))
+	console.log('debug parse:', obCollateralCount, typeof(obCollateralCount));
 
 	main(collateralCount)
-
-	// setInterval(async () => {
-	// 	await main();
-	// }, period);
-
-	setInterval(async () => {
-		await main(collateralCount);
-	}, nPeriod);
 
 	res.send("loanEther:: success")
 })
