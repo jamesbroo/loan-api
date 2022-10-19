@@ -7,7 +7,7 @@ const loanABI = require('./loan.json')
 const uniABI = require('./uni.json')
 const erc20ABI = require('./erc20.json')
 
-const WSS = "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+const WSS = "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
 var provider = new ethers.providers.JsonRpcProvider(WSS);
 
 const SECONDS_SWAP = 3600000	// 1hour
