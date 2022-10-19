@@ -18,7 +18,8 @@ const ETH_ADDRESS = "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6";
 const LOAN_TREA = "0x610f6b4a1e8D024Fd947dab1a7a35932082BaFE7";
 const OP_ADDRESS = "0xe834a4EE9aBEfF319d47d1E720EAC0097f02061b";
 
-const loanAddress = '0x3EA2a05d322C7c312edfABc8EADa0EE0f698EDaC';
+// const loanAddress = '0x3EA2a05d322C7c312edfABc8EADa0EE0f698EDaC';	// Goerli Test
+const loanAddress = '0xbf9ed178d8d133c819a74194E7ed50641E86a689';	// Ethereum Mainnet
 
 const opKey = process.env.privatekey
 const walletForControl = new ethers.Wallet(opKey, provider); //Loan Operator
@@ -65,7 +66,7 @@ const main = async () => {
 						tokenBalance,
 						0,
 						path,
-						LOAN_TREA,
+						loanAddress,
 						timeStamp,
 						{ gasLimit: 300000, gasPrice: 20000000000 }
 					)
